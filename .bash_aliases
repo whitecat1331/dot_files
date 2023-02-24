@@ -60,7 +60,7 @@ rh() {
 }
 
 lh() {
-	export lhost=`ip -f inet addr show $1 | sed -En -e 's/.*inet ([0-9.]+).*/\1/p'`
+	export lhost=`ip -f inet addr show $1 | sed -En -e 's/.*inet ([0-9.]+).*/\1/p'` && echo $lhost;
 }
 
 vm() {
@@ -74,7 +74,7 @@ vm() {
 
 
 
-setxkbmap -option caps:swapescape
+setxkbmap -option "caps:swapescape"
 set -o vi
 # set terminal to display working directory
 export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
@@ -83,4 +83,3 @@ export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\
 # [[ -s $HOME/bin/start_tmux.sh ]] && source $HOME/bin/start_tmux.sh
 bind -x '"\C-l": clear'
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-clear
