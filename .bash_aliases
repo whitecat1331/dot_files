@@ -1,6 +1,6 @@
 terminate='&> /dev/null&'
 browser='brave-browser'
-alias aliases='sudo vim ${HOME}/.bash_aliases'
+alias aliases='sudo nvim ${HOME}/.bash_aliases'
 alias cherrytree='cherrytree > /dev/null 2> /dev/null&'
 #alias vb='virtualbox &> /dev/null&'
 alias pytest='python3 -m unittest'
@@ -69,9 +69,9 @@ vm() {
 }
 
 # setxkbmap -option "caps:swapescape"
-xmodmap -e "clear Lock"
-xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"   #this will make Esc to act as Caps Lock
-xmodmap -e "keycode 66 = Escape NoSymbol Escape"        #this will make Caps Lock to act as Esc
+# xmodmap -e "clear Lock"
+# xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"   #this will make Esc to act as Caps Lock
+# xmodmap -e "keycode 66 = Escape NoSymbol Escape"        #this will make Caps Lock to act as Esc
 set -o vi
 # set terminal to display working directory
 export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
