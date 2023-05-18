@@ -1,0 +1,7 @@
+autojump
+bat
+cargo
+git
+gnome-tweaks
+tldr
+trash-cli
