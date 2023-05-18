@@ -15,13 +15,14 @@ alias burpsuite='/opt/BurpSuiteCommunity/BurpSuiteCommunity'
 alias sdn='shutdown now'
 alias python='python3'
 alias phpserver='php -S localhost:1234'
+alias mgdrive="$(which google-drive-ocamlfuse) ~/googledrive"
+alias ugdrive="$(which fusermount) ~/googledrive"
 alias python='python3'
 alias rm='trash -v'
 alias evim="cd ~/.config/lvim/"
-alias chrome="silence_command 'google-chrome' '$1'"
-alias ff="silence_command 'firefox' '$1'"
 # alias brave="silence_command 'brave-browser' '$1'"
-alias bat='batcat'
+alias cat="/usr/bin/batcat"
+alias zoom="zoom $terminate"
 
 silence_command() {
 	if [ -z "$2" ]
