@@ -3,5 +3,9 @@ bat
 cargo
 git
 gnome-tweaks
+htop
+nodejs
+npm
 tldr
+terminator
 trash-cli

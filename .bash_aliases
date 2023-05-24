@@ -23,6 +23,7 @@ alias evim="cd ~/.config/lvim/"
 # alias brave="silence_command 'brave-browser' '$1'"
 alias cat="/usr/bin/batcat"
 alias zoom="zoom $terminate"
+alias picdump="mv ~/Pictures/Screenshots/* $1"
 
 silence_command() {
 	if [ -z "$2" ]
