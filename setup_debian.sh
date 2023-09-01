@@ -73,3 +73,10 @@ rm packages-microsoft-prod.deb
 apt-get update
 # Install PowerShell
 apt-get install -y powershell
+# TLDR setup
+$(which mkdir) -p /root/.local/share/
+$(which tldr) -u
+# update and upgrade again
+apt update && apt upgrade -y
+# end
+echo "Successfully Installed"
