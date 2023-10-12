@@ -12,7 +12,6 @@ alias sdn='shutdown now'
 alias python='python3'
 alias mgdrive="$(which google-drive-ocamlfuse) ~/googledrive"
 alias ugdrive="$(which fusermount) ~/googledrive"
-alias python='python3'
 alias rm='trash -v'
 alias cat="/usr/bin/batcat"
 alias zoom="zoom $terminate"
@@ -43,11 +42,16 @@ _paste(){
     xclip -selection clipboard -o
 }
 
+xfreerdp(){ 
+  sudo xfreerdp /v:$1 /u:$2 /p:$3 /cert:ignore +clipboard /dynamic-resolution &> /dev/null &
+}
+
 # Use Gnome tweaks to swap caps::esc
 set -o vi
 # set terminal to display working directory
 export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
 [[ -s /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh
 [[ -d /home/$USER/.cargo ]] &&  export PATH=/home/$USER/.cargo/bin:$PATH
+[[ -f ~/.keys ]] && source ~/.keys
 bind -x '"\C-l": clear'
 export PATH="$HOME/Development/python/bin:$HOME/bin:$HOME/.local/bin:$PATH"

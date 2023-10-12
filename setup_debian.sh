@@ -77,7 +77,7 @@ apt-get install -y powershell
 $(which mkdir) -p /root/.local/share/
 $(which tldr) -u
 # disable sudo password
-echo "$USER ALL=ALL(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
+echo "%sudo ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
 # update and upgrade again
 apt update && apt upgrade -y
 # end
