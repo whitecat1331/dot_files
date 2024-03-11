@@ -27,7 +27,8 @@ ln -s /opt/nvim-linux64/bin/nvim /usr/bin/nvim
 # install Astrovim config on Neovim
 mv ~/.config/nvim ~/.config/nvim.bak
 mv ~/.local/share/nvim ~/.local/share/nvim.bak
-git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+mv ~/.cache/nvim ~/.cache/nvim.bak
+git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 git clone https://github.com/whitecat1331/AstroCat.git ~/.config/nvim/lua/user
 
 # install google-chrome
@@ -53,6 +54,8 @@ do
   ln -s /opt/dot_files/.bash_aliases /home/$user/.bash_aliases
   source /home/$user/.bashrc
 done
+
+ln -s /opt/dot_files/.bash_aliases /root
 
 # Install yarn
 npm install --global yarn
@@ -82,3 +85,5 @@ echo "%sudo ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
 apt update && apt upgrade -y
 # end
 echo "Successfully Installed"
+
+
