@@ -9,3 +9,4 @@ npm
 tldr
 terminator
 trash-cli
+qemu-system
