@@ -7,6 +7,8 @@ then
   exit
 fi
 
+if [ -n "$SUDO_USER" ] ; then HOME="/home/$SUDO_USER" ; fi
+
 # disable sudo password
 echo "%sudo ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
 
