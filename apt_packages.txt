@@ -1,6 +1,8 @@
+wget
+ripgrep
+gdu
 autojump
 bat
-cargo
 git
 gnome-tweaks
 htop
@@ -10,3 +12,4 @@ tldr
 terminator
 trash-cli
 qemu-system
+virt-manager

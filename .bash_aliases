@@ -1,5 +1,6 @@
 terminate='&> /dev/null&'
 browser='brave-browser'
+alias fsu='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y'
 alias aliases='sudo nvim ${HOME}/.bash_aliases'
 alias cherrytree='cherrytree > /dev/null 2> /dev/null&'
 alias pytest='python3 -m unittest'
@@ -18,13 +19,6 @@ alias zoom="zoom $terminate"
 alias picdump="cp -r ~/Pictures/Screenshots/* Screenshots/"
 alias malinit="cp -r $HOME/.Malware_Analysis/Template/* ."
 alias xclip='xclip -selection clipboard'
-
-mkdir() {
-  if [ ! -d $1 ]; then
-    /usr/bin/mkdir "$1"
-  fi
-  cd "$1"
-}
 
 rh() {
 	export rhost=$1
@@ -46,6 +40,11 @@ xfreerdp(){
   sudo xfreerdp /v:$1 /u:$2 /p:$3 /cert:ignore +clipboard /dynamic-resolution &> /dev/null &
 }
 
+gorename(){
+    reg="s/$1/$2/g"
+    grep -rl $1 * | xargs sed -i $reg
+}
+
 # Use Gnome tweaks to swap caps::esc
 set -o vi
 # set terminal to display working directory
@@ -54,4 +53,11 @@ export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\
 [[ -d /home/$USER/.cargo ]] &&  export PATH=/home/$USER/.cargo/bin:$PATH
 [[ -f ~/.keys ]] && source ~/.keys
 bind -x '"\C-l": clear'
+# add go to path
+export GOPATH=$HOME/go
+export PATH="$PATH:$GOPATH/bin"
+export PATH=$PATH:/usr/local/go/bin
+# add python to path
 export PATH="$HOME/Development/python/bin:$HOME/bin:$HOME/.local/bin:$PATH"
+# add rust to path
+export PATH="$PATH:~/.cargo/bin"
