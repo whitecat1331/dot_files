@@ -7,10 +7,11 @@ then
   exit
 fi
 
-if [ -n "$SUDO_USER" ] ; then HOME="/home/$SUDO_USER" ; fi
-
 # disable sudo password
 echo "%sudo ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+# change home path to sudo user that called this script
+if [ -n "$SUDO_USER" ] ; then HOME="/home/$SUDO_USER" ; fi
 
 # link config files
 ln -s ~/dot_files/.bash_aliases ~/.bash_aliases
@@ -34,9 +35,8 @@ apt install -y ${apt_packages[@]}
 # packages setup
 
 # TLDR setup
-$(which mkdir) -p /root/.local/share/
-$(which tldr) -u
-
+mkdir -p ~/.local/share/tldr
+git clone https://github.com/tldr-pages/tldr ~/.local/share/tldr
 
 # Install languages
 # npm, nodejs, and python3 are installed through apt packages
