@@ -13,3 +13,4 @@ terminator
 trash-cli
 qemu-system
 virt-manager
+gparted
