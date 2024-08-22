@@ -1,7 +1,7 @@
 terminate='&> /dev/null&'
 browser='brave-browser'
 alias fsu='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y'
-alias aliases='sudo nvim ${HOME}/.bash_aliases'
+alias aliases='nvim ${HOME}/.bash_aliases'
 alias cherrytree='cherrytree > /dev/null 2> /dev/null&'
 alias pytest='python3 -m unittest'
 alias pytestd='python3 -m unittest discover'
@@ -36,9 +36,9 @@ _paste(){
     xclip -selection clipboard -o
 }
 
-xfreerdp(){ 
-  sudo xfreerdp /v:$1 /u:$2 /p:$3 /cert:ignore +clipboard /dynamic-resolution &> /dev/null &
-}
+# xfreerdp(){ 
+#   sudo xfreerdp /v:$1 /u:$2 /p:$3 /cert:ignore +clipboard /dynamic-resolution &> /dev/null &
+# }
 
 gorename(){
     reg="s/$1/$2/g"
@@ -52,7 +52,7 @@ export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\
 [[ -s /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh
 [[ -d /home/$USER/.cargo ]] &&  export PATH=/home/$USER/.cargo/bin:$PATH
 [[ -f ~/.keys ]] && source ~/.keys
-bind -x '"\C-l": clear'
+bind -x '"\C-L": clear'
 # set default editor to nvim
 export EDITOR="nvim"
 export VISUAL="nvim"
@@ -64,3 +64,5 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH="$HOME/Development/python/bin:$HOME/bin:$HOME/.local/bin:$PATH"
 # add rust to path
 export PATH="$PATH:~/.cargo/bin"
+# add nvim to path
+export PATH="$PATH:/opt/nvim-linux64/bin"
