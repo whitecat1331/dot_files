@@ -14,3 +14,4 @@ trash-cli
 qemu-system
 virt-manager
 gparted
+freerdp2-x11
