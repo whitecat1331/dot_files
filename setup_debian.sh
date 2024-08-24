@@ -50,7 +50,7 @@ ln /bin/python3 /bin/python
 # install rust 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > ~/Downloads/rustup.rs
 chmod +x ~/Downloads/rustup.rs
-yes 1 | ~/Downloads/rustup.rs
+~/Downloads/rustup.rs -y
 rm -rf ~/Downloads/rustup.rs
 PATH="$PATH:~/.cargo/bin"
 rustup update stable
