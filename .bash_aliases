@@ -54,8 +54,8 @@ export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\
 [[ -f ~/.keys ]] && source ~/.keys
 bind -x '"\C-L": clear'
 # set default editor to nvim
-export EDITOR="nvim"
-export VISUAL="nvim"
+export VISUAL="vim"
+export EDITOR="vim"
 # add go to path
 export GOPATH=$HOME/go
 export PATH="$PATH:$GOPATH/bin"
