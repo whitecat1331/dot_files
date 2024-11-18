@@ -1,30 +1,27 @@
 #!/bin/bash
 
 # ensure root
-if [ "$EUID" != 0 ] 
+if [ "$EUID" == 0 ] 
 then 
-  echo "Please run as root"
+  echo "Please do not run as root"
   exit
 fi
 
 # disable sudo password
-echo "%sudo ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
+sudo bash -c 'echo "%sudo ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers'
 
-# change home path to sudo user that called this script
-if [ -n "$SUDO_USER" ] ; then HOME="/home/$SUDO_USER" ; fi
+# update and upgrade
+sudo apt update && sudo apt upgrade -y
 
 # link config files
 ln -s ~/dot_files/.bash_aliases ~/.bash_aliases
 
 # source ~/.bash_aliases
 
-# update and upgrade
-apt update && apt upgrade -y
-
 # install google-chrome
 wget -qP ~/Downloads https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 chmod +x ~/Downloads/google-chrome-stable_current_amd64.deb
-apt install -y ~/Downloads/google-chrome-stable_current_amd64.deb
+sudo apt install -y ~/Downloads/google-chrome-stable_current_amd64.deb
 rm -f ~/Downloads/google-chrome-stable_current_amd64.deb
 
 # install apt packages
@@ -57,7 +54,7 @@ rustup update stable
 
 # install go
 wget -qP ~/Downloads https://go.dev/dl/go1.22.5.linux-amd64.tar.gz
-tar -C /usr/local -xzf ~/Downloads/go1.22.5.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf ~/Downloads/go1.22.5.linux-amd64.tar.gz
 rm -f ~/Downloads/go1.22.5.linux-amd64.tar.gz
 PATH="$PATH:/usr/local/go/bin"
 
@@ -115,7 +112,5 @@ git clone https://github.com/whitecat1331/astronvim_nvim.git ~/.config/nvim
 
 # give time for everything to catch up
 sleep 3
-# update and upgrade again
-apt update && apt upgrade -y
 # end
 echo "Successfully Installed"
