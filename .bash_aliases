@@ -66,3 +66,5 @@ export PATH="$HOME/Development/python/bin:$HOME/bin:$HOME/.local/bin:$PATH"
 export PATH="$PATH:~/.cargo/bin"
 # add nvim to path
 export PATH="$PATH:/opt/nvim-linux64/bin"
+# fix history mismatch with split
+export PROMPT_COMMAND='history -a; history -r'
