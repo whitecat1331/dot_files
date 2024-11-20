@@ -27,7 +27,7 @@ rm -f ~/Downloads/google-chrome-stable_current_amd64.deb
 # install apt packages
 declare -a apt_packages=$(sed -z 's/\n/ /g' apt_packages.txt)
 
-apt install --allow-downgrades -y ${apt_packages[@]}
+sudo apt install --allow-downgrades -y ${apt_packages[@]}
 
 # packages setup
 
@@ -76,10 +76,8 @@ apt-get install -y powershell
 
 # install Neovim
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-tar xzvf nvim-linux64.tar.gz
-mv nvim-linux64/ /opt
-rm -rf nvim-linux64.tar.gz
-ln -s /opt/nvim-linux64/bin/nvim /usr/bin/nvim
+sudo rm -rf /opt/nvim
+sudo tar -C /opt -xzf nvim-linux64.tar.gz
 
 # Install Astrovim
 
@@ -107,6 +105,9 @@ mv ~/.cache/nvim ~/.cache/nvim.bak
 # add mappings to ~/.config/nvim
 git clone https://github.com/whitecat1331/astronvim_nvim.git ~/.config/nvim
 
+# install tmux
+ln .tmux.conf ~/.tmux.conf
+tmux source ~/.tmux.conf
 
 
 
