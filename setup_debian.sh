@@ -106,7 +106,7 @@ mv ~/.cache/nvim ~/.cache/nvim.bak
 git clone https://github.com/whitecat1331/astronvim_nvim.git ~/.config/nvim
 
 # install tmux
-ln .tmux.conf ~/.tmux.conf
+ln -s .tmux.conf ~/.tmux.conf
 tmux source ~/.tmux.conf
 
 
