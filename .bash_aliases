@@ -69,4 +69,6 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 # fix history mismatch with split
 export PROMPT_COMMAND='history -a; history -r'
 # start tmux session
-[[ $TERM != "screen" ]] && exec tmux new-session -A -s main
+if command -v tmux &> /dev/null; then
+ [[ $TERM != "screen" ]] && exec tmux new-session -A -s main
+fi
