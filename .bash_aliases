@@ -19,6 +19,7 @@ alias zoom="zoom $terminate"
 alias picdump="cp -r ~/Pictures/Screenshots/* Screenshots/"
 alias malinit="cp -r $HOME/.Malware_Analysis/Template/* ."
 alias xclip='xclip -selection clipboard'
+alias patsprints='gtk-launch StartPatsPrints'
 
 rh() {
 	export rhost=$1
@@ -67,7 +68,7 @@ export PATH="$PATH:~/.cargo/bin"
 # add nvim to path
 export PATH="$PATH:/opt/nvim-linux64/bin"
 # fix history mismatch with split
-export PROMPT_COMMAND='history -a; history -r'
+export PROMPT_COMMAND="history -a; ${PROMPT_COMMAND}"
 # start tmux session
 if command -v tmux &> /dev/null; then
  [[ $TERM != "screen" ]] && exec tmux new-session -A -s main
