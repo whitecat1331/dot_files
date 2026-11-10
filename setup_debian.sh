@@ -39,10 +39,10 @@ git clone https://github.com/tldr-pages/tldr ~/.local/share/tldr
 # npm, nodejs, and python3 are installed through apt packages
 
 # Install yarn
-npm install --global yarn
+sudo npm install --global yarn
 
 # link python to python3
-ln /bin/python3 /bin/python
+sudo ln -sf python3 /usr/bin/python
 
 # install rust 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > ~/Downloads/rustup.rs
@@ -61,23 +61,25 @@ PATH="$PATH:/usr/local/go/bin"
 
 # Install Powershell
 # Install pre-requisite packages.
-apt-get install -y wget apt-transport-https software-properties-common
+sudo apt-get install -y wget apt-transport-https software-properties-common
 # Download the Microsoft repository GPG keys
 wget -q "https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb"
 # Register the Microsoft repository GPG keys
-dpkg -i packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
 # Delete the the Microsoft repository GPG keys file
 rm packages-microsoft-prod.deb
 # Update the list of packages after we added packages.microsoft.com
-apt-get update
+sudo apt-get update
 # Install PowerShell
-apt-get install -y powershell
+sudo apt-get install -y powershell
 
 
 # install Neovim
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-sudo rm -rf /opt/nvim
-sudo tar -C /opt -xzf nvim-linux64.tar.gz
+curl -L -o /tmp/nvim-linux-x86_64.tar.gz https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+sudo rm -rf /opt/nvim-linux-x86_64
+sudo tar -C /opt -xzf /tmp/nvim-linux-x86_64.tar.gz
+sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
+rm -f /tmp/nvim-linux-x86_64.tar.gz
 
 # Install Astrovim
 
@@ -106,7 +108,7 @@ mv ~/.cache/nvim ~/.cache/nvim.bak
 git clone https://github.com/whitecat1331/astronvim_nvim.git ~/.config/nvim
 
 # install tmux
-ln -s .tmux.conf ~/.tmux.conf
+ln -s ~/dot_files/.tmux.conf ~/.tmux.conf
 tmux source ~/.tmux.conf
 
 
